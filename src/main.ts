@@ -16,7 +16,7 @@ import ApiService from './core/Axios/ApiService';
 
 const pinia = createPinia();
 
-ApiService.init('http://localhost:3005');
+ApiService.init(import.meta.env.VITE_API_URL);
 
 pinia.use(piniaPluginPersistedstate);
 

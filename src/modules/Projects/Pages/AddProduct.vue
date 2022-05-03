@@ -55,7 +55,7 @@ export default defineComponent({
       products: [] as ProductNoImage[],
       toastStore: useToastStore(),
       formData: {
-        product_id: null,
+        product_id: 1,
         project_id: Number(this.$route.params.id),
         quantity: 1,
       },

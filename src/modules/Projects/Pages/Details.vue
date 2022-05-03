@@ -81,12 +81,7 @@
           >
             <h2 class="text-md font-bold">Ukupni trošak</h2>
             <p>
-              {{
-                projectDetails.products.reduce(
-                  (partialSum, a) => partialSum + a.price * a.quantity,
-                  0
-                )
-              }}
+              {{ totalCost(projectDetails.products) }}
               kn
             </p>
           </div>
@@ -357,6 +352,14 @@ export default defineComponent({
           await this.getProjectDetails();
         }
       }
+    },
+
+    totalCost(product: Product[]) {
+      return product.reduce(
+        //@ts-ignore
+        (partialSum, a) => partialSum + a.price * a.quantity,
+        0
+      );
     },
 
     editProject() {

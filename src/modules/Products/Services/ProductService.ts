@@ -4,10 +4,10 @@ export type Product = {
   id?: number;
   code: string;
   name: string;
-  price: number | string;
+  price: number;
   description: string;
   photo: File | string;
-  total?: number;
+  quantity?: number;
 };
 
 export type ProductNoImage = {
@@ -67,6 +67,7 @@ export default class ProductService {
       description: product.description,
       price: product.price,
       photo: product.photo,
+      ...(product.quantity && { quantity: product.quantity }),
     };
   }
 }

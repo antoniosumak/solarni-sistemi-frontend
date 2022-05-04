@@ -178,6 +178,7 @@
           :table-headers="documentTableHeaders"
           :hide-edit="true"
           @delete-method="toggleDeleteModal"
+          @download-file="downloadFile"
         />
       </div>
     </div>
@@ -352,6 +353,36 @@ export default defineComponent({
           await this.getProjectDetails();
         }
       }
+    },
+
+    async downloadFile(documentInfo: { id: number; name: string }) {
+      try {
+        const documentData = await this.documentService.downloadFile(
+          documentInfo.id
+        );
+        console.log(documentData);
+        const a = document.createElement('a');
+        a.href = `data:application/${this.getFileExtension(
+          documentData.name
+        )};base64, ${documentData.document}`;
+        a.download = documentData.name;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } catch (error) {
+        this.toastStore.displayToastMessage({
+          toastMessage: error,
+          isError: true,
+        });
+      }
+    },
+
+    getFileExtension(fileName: string) {
+      if (!fileName) {
+        return;
+      }
+
+      return fileName.split('.').at(-1);
     },
 
     totalCost(product: Product[]) {

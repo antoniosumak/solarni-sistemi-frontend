@@ -60,21 +60,15 @@
           >{{ data.statusName }}</span
         >
 
-        <a
+        <button
+          @click="downloadFile(data)"
           v-if="String(key) === 'document'"
-          :href="`data:application/${data.document.split('.').at(-1)};base64, ${
-            data.document
-          }`"
-          :download="data.name"
+          class="border border-gray-200 p-2 hover:border-gray-500 group"
         >
-          <button
-            class="border border-gray-200 p-2 hover:border-gray-500 group"
-          >
-            <document-download-icon
-              class="w-5 h-5 text-primary group-hover:text-darker"
-            />
-          </button>
-        </a>
+          <document-download-icon
+            class="w-5 h-5 text-primary group-hover:text-darker"
+          />
+        </button>
 
         <img
           class="h-16 object-cover"
@@ -114,6 +108,7 @@ import InputText from 'primevue/inputtext';
 import EditDeleteButton from './EditDeleteButton.vue';
 import moment from 'moment';
 import { DocumentDownloadIcon } from '@heroicons/vue/solid';
+
 export default defineComponent({
   name: 'DynamicTable',
   components: {
@@ -132,7 +127,7 @@ export default defineComponent({
     'hideDelete',
     'hideEdit',
   ],
-  emits: ['delete-method', 'selected-value', 'edit-method'],
+  emits: ['delete-method', 'selected-value', 'edit-method', 'download-file'],
   data() {
     return {
       selectedValue: null,
@@ -248,6 +243,10 @@ export default defineComponent({
       }
 
       return data[key];
+    },
+
+    downloadFile(documentInfo: any) {
+      this.$emit('download-file', documentInfo);
     },
   },
 });

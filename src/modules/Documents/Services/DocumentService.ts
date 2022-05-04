@@ -22,6 +22,18 @@ export default class DocumentService {
     return response.data;
   }
 
+  async downloadFile(
+    documentId: number
+  ): Promise<{ name: string; document: string }> {
+    const response = await ApiService.get(
+      `/api/documents/download/${documentId}`
+    );
+
+    console.log(response);
+
+    return response.data;
+  }
+
   async deleteDocument(id: number) {
     try {
       ApiService.delete(`/api/documents/${id}`);

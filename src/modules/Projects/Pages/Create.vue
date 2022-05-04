@@ -32,7 +32,6 @@
           />
           <input-field
             label="Snaga priključka"
-            type="number"
             v-model="formData.connection_power"
           />
           <div class="py-3">

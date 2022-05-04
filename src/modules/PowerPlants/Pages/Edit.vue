@@ -12,8 +12,8 @@
       <form @submit.prevent="handleSubmit">
         <form-divider>
           <input-field label="Naziv" v-model="formData.name" />
-          <input-field label="Cijena" type="number" v-model="formData.power" />
-          <input-field label="Cijena" type="number" v-model="formData.price" />
+          <input-field label="Snaga" v-model="formData.power" />
+          <input-field label="Cijena" v-model="formData.price" />
           <div class="py-3">
             <label>Tip elektrane</label>
             <v-select

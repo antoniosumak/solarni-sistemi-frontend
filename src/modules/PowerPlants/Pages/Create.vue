@@ -12,9 +12,10 @@
       <form @submit.prevent="handleSubmit">
         <form-divider>
           <input-field label="Naziv" v-model="formData.name" />
-          <input-field label="Snaga" type="number" v-model="formData.power" />
+          <input-field label="Snaga" v-model="formData.power" />
+          <input-field label="Cijena" v-model="formData.price" />
           <div class="py-3">
-            <label>Klijent</label>
+            <label>Tip elektrane</label>
             <v-select
               :options="powerPlantTypes"
               label="name"
@@ -64,6 +65,7 @@ export default defineComponent({
         name: '',
         power: 0,
         power_plant_type_id: 1,
+        price: 0,
       },
     };
   },

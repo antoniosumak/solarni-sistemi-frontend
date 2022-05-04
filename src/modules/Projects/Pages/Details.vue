@@ -142,6 +142,12 @@
           <div
             class="w-full rounded-md grid grid-cols-2 items-center bg-sectionBackground py-2 px-4"
           >
+            <h2 class="text-md font-bold">Cijena</h2>
+            <p>{{ projectDetails?.power_plant?.price }} kW</p>
+          </div>
+          <div
+            class="w-full rounded-md grid grid-cols-2 items-center bg-sectionBackground py-2 px-4"
+          >
             <h2 class="text-md font-bold">Tip elektrane</h2>
             <p>{{ projectDetails?.power_plant?.powerPlantTypeName }}</p>
           </div>

@@ -5,6 +5,7 @@ export type PowerPlant = {
   name: string;
   power: number;
   power_plant_type_id: number;
+  price: number;
   powerPlantTypeName?: string;
 };
 
@@ -53,6 +54,7 @@ export default class PowerPlantService {
       name: powerPlant.name,
       power: powerPlant.power,
       power_plant_type_id: powerPlant.power_plant_type_id,
+      price: powerPlant.price,
       ...(powerPlant.powerPlantTypeName && {
         powerPlantTypeName: powerPlant.powerPlantTypeName,
       }),

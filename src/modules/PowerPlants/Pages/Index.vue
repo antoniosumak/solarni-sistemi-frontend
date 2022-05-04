@@ -59,6 +59,7 @@ export default defineComponent({
       tableHeaders: {
         name: 'Naziv',
         power: 'Snaga',
+        price: 'Cijena',
         powerPlantTypeName: 'Tip elektrane',
       },
     };

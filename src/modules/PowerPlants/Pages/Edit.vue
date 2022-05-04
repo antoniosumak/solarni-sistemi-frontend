@@ -13,8 +13,9 @@
         <form-divider>
           <input-field label="Naziv" v-model="formData.name" />
           <input-field label="Cijena" type="number" v-model="formData.power" />
+          <input-field label="Cijena" type="number" v-model="formData.price" />
           <div class="py-3">
-            <label>Klijent</label>
+            <label>Tip elektrane</label>
             <v-select
               :options="powerPlantTypes"
               label="name"
@@ -64,6 +65,7 @@ export default defineComponent({
       formData: {
         name: '',
         power: 0,
+        price: 0,
       } as PowerPlant,
     };
   },

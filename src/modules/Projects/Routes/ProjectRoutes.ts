@@ -8,7 +8,7 @@ import Edit from '../Pages/Edit.vue';
 export function createProjectIndexRoute(): RouteRecordRaw {
   return {
     name: 'projects',
-    path: '/projects',
+    path: '/',
     component: Index,
     meta: {
       id: 'projectsIndex',
